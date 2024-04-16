@@ -12,7 +12,6 @@ def main(experiment_name=None, date=None, supervisor_info=None, subject_info=Non
             "age": int(input("Enter supervisor's age: ")),
             "sex": input("Enter supervisor's sex (male/female): ")
         }
-
     if subject_info is None:
         subject_info = {
             "first_name": input("Enter subject's first name: "),

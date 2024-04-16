@@ -1,5 +1,6 @@
 import json
 
+# Erstellen der Personen-Klasse
 class Person:
     def __init__(self, first_name, last_name, sex, age):
         self.first_name = first_name
@@ -23,6 +24,7 @@ class Person:
         with open(filename, "w") as f:
             json.dump({"supervisor": self.get_full_name()}, f, indent=4)
 
+# Erstellen der Experiment-Klasse
 class Experiment:
     def __init__(self, experiment_name, date, supervisor, subject):
         self.experiment_name = experiment_name
