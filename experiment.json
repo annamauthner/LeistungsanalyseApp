@@ -1,16 +1,12 @@
 {
-    "experiment_name": "Leistungstest",
-    "date": "2024-04-10",
-    "supervisor": {
-        "first_name": "Jule",
-        "last_name": "Trotzki",
-        "age": 20,
-        "estimate_max_hr": 206
-    },
+    "experiment_name": "HR_experiment",
+    "date": "2024-04-16",
+    "supervisor": "Anna Mauthner",
     "subject": {
-        "first_name": "Anna",
-        "last_name": "Mauthner",
-        "age": 23,
-        "estimate_max_hr": 203
+        "first_name": "Max",
+        "last_name": "Mustermann",
+        "sex": "male",
+        "age": 27,
+        "max_hr": 198.7
     }
 }

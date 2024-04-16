@@ -16,17 +16,20 @@ class Person:
         else:
             return None
 
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
     def save(self, filename):
         with open(filename, "w") as f:
-            json.dump(self.__dict__,f)
+            json.dump({"supervisor": self.get_full_name()}, f, indent=4)
 
 class Experiment:
     def __init__(self, experiment_name, date, supervisor, subject):
         self.experiment_name = experiment_name
         self.date = date
-        self.supervisor = supervisor.__dict__
+        self.supervisor = supervisor.get_full_name()
         self.subject = subject.__dict__
 
     def save(self, filename):
         with open(filename, "w") as f:
-            json.dump(self.__dict__, f)
+            json.dump(self.__dict__, f, indent=4)
