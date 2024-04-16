@@ -12,7 +12,6 @@
 - Code: python -m venv venv
 - Aktivieren der virtuellen Umgebung: .\\.venv\Scripts\activate
 
-
 ## Benutzung
 
 - Führe das main.py-Skript aus, um die App zu starten: python main.py
