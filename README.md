@@ -19,4 +19,4 @@
 - Gib die Experimentdaten ein, wenn du dazu aufgefordert wirst.
 - Das Skript wird ein Dictionary mit den eingegebenen Daten erstellen und anzeigen.
 - Das Projekt verwendet Klassen, um Personen und Experimente zu erstellen und zu verwalten. 
-- Dann wird ein Dictionary erstellt, das als JSON in eine Datei namens experiment.json im aktuellen Verzeichnis gespeichert.
+- Dann wird ein Dictionary erstellt, das als JSON in eine Datei namens experiment.json im aktuellen Verzeichnis speichert.
