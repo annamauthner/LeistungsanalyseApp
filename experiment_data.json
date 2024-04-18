@@ -1,0 +1,16 @@
+{
+    "experiment_name": "Heart Rate Test",
+    "date": "2024-04-18",
+    "supervisor": {
+        "first_name": "Jule",
+        "last_name": "Trotzki",
+        "sex": "female",
+        "age": 20
+    },
+    "subject": {
+        "first_name": "Susi",
+        "last_name": "Sonnenschein",
+        "sex": "female",
+        "age": 43
+    }
+}

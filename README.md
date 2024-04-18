@@ -22,4 +22,3 @@ Das Skript wird ein Dictionary mit den eingegebenen Daten erstellen und anzeigen
 Das erstellte Dictionary wird als JSON in eine Datei namens experiment.json im aktuellen Verzeichnis gespeichert.
 
 
-test 2

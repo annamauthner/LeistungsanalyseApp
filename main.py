@@ -1,5 +1,6 @@
 from my_functions import estimate_max_hr, build_person, build_experiment
 import json
+from my_classes import Person, Experiment
 
 def main():
     experiment_name = input("Enter experiment name: ")
@@ -13,16 +14,17 @@ def main():
     subject_sex = input("Enter subject's sex (male/female): ")
     subject_age = int(input("Enter subject's age: "))
 
-    supervisor = build_person(supervisor_first_name, supervisor_last_name, supervisor_sex, supervisor_age)
-    subject = build_person(subject_first_name, subject_last_name, subject_sex, subject_age)
+    supervisor = Person(supervisor_first_name, supervisor_last_name, supervisor_sex, supervisor_age)
+    subject = Person(subject_first_name, subject_last_name, subject_sex, subject_age)
 
-    experiment = build_experiment(experiment_name, date, supervisor, subject)
+    experiment = Experiment(experiment_name, date, supervisor.to_dict(), subject.to_dict())
 
     print("Experiment details:")
-    print(experiment)
+    print(experiment.__dict__)
 
-    with open("experiment.json", "w") as outfile:
-        json.dump(experiment, outfile, indent=4)
-
+    filename = "experiment_data.json"
+    experiment.save(filename)
+    
+    
 if __name__ == "__main__":
     main()
