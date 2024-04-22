@@ -1,32 +1,27 @@
-from my_classes import Person, Experiment
+from my_classes import Subject, Supervisor, Experiment
 
-def main(experiment_name=None, date=None, supervisor_info=None, subject_info=None):
-    if experiment_name is None:
-        experiment_name = input("Enter experiment name: ")
-    if date is None:
-        date = input("Enter date of experiment (YYYY-MM-DD): ")
-    if supervisor_info is None:
-        supervisor_info = {
-            "first_name": input("Enter supervisor's first name: "),
-            "last_name": input("Enter supervisor's last name: "),
-            "age": int(input("Enter supervisor's age: ")),
-            "sex": input("Enter supervisor's sex (male/female): ")
-        }
-    if subject_info is None:
-        subject_info = {
-            "first_name": input("Enter subject's first name: "),
-            "last_name": input("Enter subject's last name: "),
-            "age": int(input("Enter subject's age: ")),
-            "sex": input("Enter subject's sex (male/female): ")
-        }
+def main():
+    experiment_name = input("Enter experiment name: ")
+    date = input("Enter date of experiment (YYYY-MM-DD): ")
 
-    supervisor = Person(**supervisor_info)
-    subject = Person(**subject_info)
+    supervisor_first_name = input("Enter supervisor's first name: ")
+    supervisor_last_name = input("Enter supervisor's last name: ")
+    supervisor = Supervisor(supervisor_first_name, supervisor_last_name)
+
+    subject_first_name = input("Enter subject's first name: ")
+    subject_last_name = input("Enter subject's last name: ")
+    subject_sex = input("Enter subject's sex (male/female): ")
+    subject_birth_date = input("Enter subject's birth date (YYYY-MM-DD): ")
+    subject = Subject(subject_first_name, subject_last_name, subject_sex, subject_birth_date)
 
     experiment = Experiment(experiment_name, date, supervisor, subject)
 
     print("Experiment details:")
-    print(experiment.__dict__)
+    print("Experiment name:", experiment.experiment_name)
+    print("Date:", experiment.date)
+    print("Supervisor:", supervisor.get_full_name())
+    print("Subject:", subject.get_full_name())
+    print("Estimated Max Heart Rate:", subject.estimate_max_hr())
 
     experiment.save("experiment.json")
 

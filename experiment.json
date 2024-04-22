@@ -1,12 +1,14 @@
 {
-    "experiment_name": "HR_experiment",
-    "date": "2024-04-16",
-    "supervisor": "Anna Mauthner",
+    "experiment_name": "hr_experiment",
+    "date": "2024-04-22",
+    "supervisor": {
+        "full_name": "Anna Mauthner"
+    },
     "subject": {
         "first_name": "Max",
         "last_name": "Mustermann",
         "sex": "male",
-        "age": 27,
-        "max_hr": 198.7
+        "age": 32,
+        "max_hr": 194.2
     }
 }
