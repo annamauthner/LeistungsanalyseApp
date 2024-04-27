@@ -1,16 +1,15 @@
 {
-    "experiment_name": "Heart Rate Test",
-    "date": "2024-04-18",
+    "experiment_name": "Heart Rate Study",
+    "date": "2024-04-27",
     "supervisor": {
-        "first_name": "Jule",
-        "last_name": "Trotzki",
-        "sex": "female",
-        "age": 20
+        "first_name": "Anton",
+        "last_name": "Maier"
     },
     "subject": {
-        "first_name": "Susi",
-        "last_name": "Sonnenschein",
+        "first_name": "Susanne",
+        "last_name": "Schmidt",
         "sex": "female",
-        "age": 43
+        "age": 51,
+        "max_hr_bpm": 175
     }
 }
