@@ -1,5 +1,6 @@
 import json 
 from datetime import datetime
+import requests 
 
 # ------------Personen-Klasse ------------------------------------------------------------------------------
 class Person:
@@ -11,16 +12,24 @@ class Person:
         print(self.__dict__) 
         return {
             "first_name": self.first_name,
-            "last_name": self.last_name}            
+            "last_name": self.last_name}  
+        
+    def put(self):
+        url = "http://localhost:5000/person/"
+        data = {"name": self.first_name}
+        response = requests.post(url, data=json.dumps(data))
+        print(response.text)
+         
           
 #----------Subject-Klasse-----------------------------------------------------------------------------------            
 class Subject(Person):
-    def __init__(self, first_name, last_name, sex, birthdate):
+    def __init__(self, first_name, last_name, sex, birthdate, email=None):
         super().__init__(first_name, last_name)
         self.sex = sex 
         self._birthdate = birthdate
         self._age = self.calculate_age()
         self.max_hr_bpm = self.calculate_max_hr()
+        self.email = email
         
     def calculate_max_hr(self):
         age = self.calculate_age()
@@ -36,6 +45,13 @@ class Subject(Person):
         birthdate = datetime.strptime(self._birthdate, "%Y-%m-%d")
         age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
         return age
+
+    def update_email(self):
+        url = "http://localhost:5000/person/"
+        data = {"name": self.first_name, "email": self.email}
+        response = requests.put(url, data=json.dumps(data))
+        print(response.text)
+    
         
     def to_dict(self):
         return {
@@ -43,7 +59,8 @@ class Subject(Person):
             "last_name": self.last_name,
             "sex": self.sex,
             "age": self._age,
-            "max_hr_bpm": self.max_hr_bpm}
+            "max_hr_bpm": self.max_hr_bpm,
+            "Email-Adresse": self.email}
         
 #-----------Supervisor-Klasse------------------------------------------------------------------------------
 class Supervisor(Person):
@@ -73,4 +90,4 @@ class Experiment:
     def save(self, filename):
         with open(filename, "w") as f:
             json.dump(self.to_dict(), f, indent=4)
-                           
+            
