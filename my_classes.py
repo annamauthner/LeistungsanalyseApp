@@ -68,7 +68,3 @@ class Subject(Person):
         file_path = "data.json"
         with open(file_path, "w") as file:
             json.dump(data, file, indent=4)
-
-
-if __name__ == "__main__":
-    main()
