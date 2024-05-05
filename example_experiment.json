@@ -1,16 +1,16 @@
 {
     "experiment_name": "Example Experiment",
-    "date": "2024-04-30",
+    "date": "2024-05-05",
     "supervisor": {
-        "first_name": "John",
-        "last_name": "Doe"
+        "first_name": "Holger",
+        "last_name": "Schwarz"
     },
     "subject": {
-        "first_name": "Anna",
-        "last_name": "Mauthner",
-        "sex": "female",
-        "age": 34,
-        "max_hr_bpm": 192,
-        "Email-Adresse": "jule.trotzki@example.com"
+        "first_name": "Julian",
+        "last_name": "Maier",
+        "sex": "male",
+        "age": 29,
+        "max_hr_bpm": 196,
+        "Email-Adresse": "juls.maier@mail.at"
     }
 }

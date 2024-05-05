@@ -1,21 +1,18 @@
-from my_classes import Person, Subject, Supervisor, Experiment
+from my_classes import Subject, Supervisor, Experiment
 
 def main():
-    # Beispiel-Person erstellen und über die API senden
-    person = Person("Anna", "Mauthner")
-    person.put()
-
+    
     # Beispiel-Subject erstellen und über die API senden
-    subject = Subject("Anna", "Mauthner", "female", "1990-01-01", "anna@mauthner.com")
+    subject = Subject("Julian", "Maier", "male", "1994-07-16", "julian@mail.at")
     subject.put()
 
     # Beispiel-Email aktualisieren und über die API senden
-    subject.email = "jule.trotzki@example.com"
+    subject.email = "juls.maier@mail.at"
     subject.update_email()
 
     # Beispiel-Experiment erstellen und speichern
-    supervisor = Supervisor("John", "Doe")
-    experiment = Experiment("Example Experiment", "2024-04-30", supervisor, subject)
+    supervisor = Supervisor("Holger", "Schwarz")
+    experiment = Experiment("Example Experiment", "2024-05-05", supervisor, subject)
     experiment.save("example_experiment.json")
 
 if __name__ == "__main__":

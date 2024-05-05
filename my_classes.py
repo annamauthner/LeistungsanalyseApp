@@ -73,7 +73,7 @@ class Supervisor(Person):
             "last_name": self.last_name}
 
 
-#------------Experiment-Klasse----------------------------------------------------------------------------
+#------------Experiment-Klasse-----------------------------------------------------------------------------
 class Experiment:
     def __init__(self, experiment_name=None, date=None, supervisor=None, subject=None):
         self.experiment_name = experiment_name
