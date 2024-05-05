@@ -1,21 +1,19 @@
-# LeistungsanalyseApp
-## Installation
+# Simple REST API
 
-- Klone das Repository auf deinen lokalen Computer:
-- Erstelle einen Ordner auf deinem Computer.
-- Navigiere mit cd "dein Speicherort" in den erstellten Ordner
-- Klone das Repository auf deinen lokalen Computer: in git bash: git clone https://github.com/annamauthner/LeistungsanalyseApp.git
-- Öffne nun Visual Studio Code und öffne den erstellten Ordner
+## Description
 
-## Erstellen einer virtuellen Umgebung:
+Das folgende Beispiel zeigt, wie man eine einfache REST API mit Python und Flask erstellt. Hierbei können Nutzer:innen mit Email-Adressen und Passwörtern angelegt und authentifiziert werden.
 
-- Code: python -m venv venv
-- Aktivieren der virtuellen Umgebung: .\\.venv\Scripts\activate
+## Requirements
 
-## Benutzung
+```bash
+pip install -r requirements.txt`
+```
 
-- Führe das main.py-Skript aus, um die App zu starten: python main.py
-- Gib die Experimentdaten ein, wenn du dazu aufgefordert wirst.
-- Das Skript wird ein Dictionary mit den eingegebenen Daten erstellen und anzeigen.
-- Das Projekt verwendet Klassen, um Personen und Experimente zu erstellen und zu verwalten. 
-- Dann wird ein Dictionary erstellt, das als JSON in eine Datei namens experiment.json im aktuellen Verzeichnis speichert.
+## Usage
+
+- Starten des Severs mittels `python main.py`
+- Dieser sollte nun unter `http://127.0.0.1:5000` erreichbar sein
+- Mittels `put_api.py` können neue User angelegt werden
+- Mittels `post_api.py` können Email-Adressen von Unsern geändert oder hinzugefügt werden werden
+- Mittels `get_api.py` können Informationen zu Usern abgerufen werden

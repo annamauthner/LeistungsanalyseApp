@@ -1,20 +1,33 @@
 import json
 from datetime import datetime
+import requests
 
 class Person:
-    def __init__(self, first_name, last_name):
+    def __init__(self, first_name, last_name=None):
         self.first_name = first_name
         self.last_name = last_name
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
 
+
+    def post(self):
+        url = "http://127.0.0.1:5000/person/"
+        data = {
+          "name": self.first_name
+        }
+        # Convert the data to JSON format
+        data_json = json.dumps(data)
+        # Send a POST request to the API
+        response = requests.post(url, data=data_json)
+        # Print the response from the server
+        print(response.text)
+
 class Subject(Person):
-    def __init__(self, first_name, last_name, sex, birth_date):
+    def __init__(self, first_name, last_name=None, sex=None, birth_date=None, email=None):
         super().__init__(first_name, last_name)
         self.sex = sex
-        self._birth_date = birth_date
-        self._age = self.calculate_age()
+        self.email= email
 
     def estimate_max_hr(self):
         if self.sex == "male":
@@ -23,12 +36,7 @@ class Subject(Person):
             return 226 - 1.0 * self._age
         else:
             return None
-
-    def calculate_age(self):
-        today = datetime.today()
-        birth_date = datetime.strptime(self._birth_date, "%Y-%m-%d")
-        age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
-        return age
+        
 
     def to_dict(self):
         return {
@@ -38,26 +46,29 @@ class Subject(Person):
             "age": self._age,
             "max_hr": self.estimate_max_hr()
         }
-
-class Supervisor(Person):
-    def to_dict(self):
-        return {"full_name": self.get_full_name()}
-
-class Experiment:
-    def __init__(self, experiment_name, date, supervisor, subject):
-        self.experiment_name = experiment_name
-        self.date = date
-        self.supervisor = supervisor
-        self.subject = subject
-
-    def to_dict(self):
-        return {
-            "experiment_name": self.experiment_name,
-            "date": self.date,
-            "supervisor": self.supervisor.to_dict(),
-            "subject": self.subject.to_dict()
+    
+    def update_email(self):
+        url = f"http://127.0.0.1:5000/person/{self.first_name}"
+        # Convert the data to JSON format
+        data = {
+            "name": self.first_name,
+            "email": self.email
         }
+        data_json = json.dumps(data)            
+        # Send a POST request to the API
+        response = requests.put(url, data=data_json)
+        # Print the response from the server
+        print(response.text)
 
-    def save(self, filename):
-        with open(filename, "w") as f:
-            json.dump(self.to_dict(), f, indent=4)
+# Speichern der Daten
+        data = {
+             "name": self.first_name,
+             "email": self.email
+            }
+        file_path = "data.json"
+        with open(file_path, "w") as file:
+            json.dump(data, file, indent=4)
+
+
+if __name__ == "__main__":
+    main()
