@@ -4,7 +4,7 @@ import requests
 
 # ------------Personen-Klasse ------------------------------------------------------------------------------
 class Person:
-    def __init__(self, first_name, last_name):
+    def __init__(self, first_name, last_name=None):
         self.first_name = first_name
         self.last_name = last_name
 
@@ -15,15 +15,16 @@ class Person:
             "last_name": self.last_name}  
         
     def put(self):
-        url = "http://localhost:5000/person/"
+        url = "http://127.0.0.1:5000/person/"
         data = {"name": self.first_name}
-        response = requests.post(url, data=json.dumps(data))
+        data_json = json.dumps(data)
+        response = requests.post(url, data=data_json)
         print(response.text)
          
           
 #----------Subject-Klasse-----------------------------------------------------------------------------------            
 class Subject(Person):
-    def __init__(self, first_name, last_name, sex, birthdate, email=None):
+    def __init__(self, first_name, last_name=None, sex=None, birthdate=None, email=None):
         super().__init__(first_name, last_name)
         self.sex = sex 
         self._birthdate = birthdate
@@ -47,9 +48,10 @@ class Subject(Person):
         return age
 
     def update_email(self):
-        url = "http://localhost:5000/person/"
+        url = f"http://127.0.0.1:5000/person/{self.first_name}"
         data = {"name": self.first_name, "email": self.email}
-        response = requests.put(url, data=json.dumps(data))
+        data_json = json.dumps(data)
+        response = requests.put(url, data=data_json)
         print(response.text)
     
         
@@ -73,7 +75,7 @@ class Supervisor(Person):
 
 #------------Experiment-Klasse----------------------------------------------------------------------------
 class Experiment:
-    def __init__(self, experiment_name, date, supervisor, subject):
+    def __init__(self, experiment_name=None, date=None, supervisor=None, subject=None):
         self.experiment_name = experiment_name
         self.date = date 
         self.supervisor = supervisor

@@ -1,22 +1,22 @@
 from my_classes import Person, Subject, Supervisor, Experiment
 
 def main():
-    # Erstelle eine Person und rufe die put-Methode auf
-    person = Person("John", "Doe")
+    # Beispiel-Person erstellen und über die API senden
+    person = Person("Anna", "Mauthner")
     person.put()
 
-    # Erstelle ein Subjekt und aktualisiere die E-Mail-Adresse
-    subject = Subject("Jane", "Doe", "female", "1990-01-01", "jane@example.com")
+    # Beispiel-Subject erstellen und über die API senden
+    subject = Subject("Anna", "Mauthner", "female", "1990-01-01", "anna@mauthner.com")
+    subject.put()
+
+    # Beispiel-Email aktualisieren und über die API senden
+    subject.email = "jule.trotzki@example.com"
     subject.update_email()
 
-    # Erstelle einen Supervisor
-    supervisor = Supervisor("Alice", "Smith")
-
-    # Erstelle ein Experiment mit den erstellten Objekten
-    experiment = Experiment("Experiment 1", "2024-04-30", supervisor, subject)
-
-    # Speichere das Experiment in einer JSON-Datei
-    experiment.save("experiment_data.json")
+    # Beispiel-Experiment erstellen und speichern
+    supervisor = Supervisor("John", "Doe")
+    experiment = Experiment("Example Experiment", "2024-04-30", supervisor, subject)
+    experiment.save("example_experiment.json")
 
 if __name__ == "__main__":
     main()
