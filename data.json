@@ -6,11 +6,11 @@
         "last_name": "Schwarz"
     },
     "subject": {
-        "first_name": "Julian",
-        "last_name": "Maier",
+        "first_name": "Matthias",
+        "last_name": "Hauck",
         "sex": "male",
         "age": 29,
         "max_hr_bpm": 196,
-        "Email-Adresse": "juls.maier@mail.at"
+        "Email-Adresse": "mathhias.hauck@mail.at"
     }
 }
